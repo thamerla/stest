@@ -16,3 +16,4 @@ jobs:
         port: ${{ secrets.PORT }}
         source: "./"
         target: ./t
+        rm: true
