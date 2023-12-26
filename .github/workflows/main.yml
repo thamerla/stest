@@ -8,12 +8,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: copy file via ssh password
-      uses: appleboy/scp-action@v0.1.4
+      uses: burnett01/rsync-deployments@6.0.0
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
-        port: ${{ secrets.PORT }}
-        source: "./"
-        target: ./t
-        rm: true
+        switches: -avzr --delete --exclude=".env" --include="" --filter=""
+        path: ./
+        remote_path: ./t
+        remote_host: ${{ secrets.HOST }}
+        remote_port: ${{ secrets.PORT }}
+        remote_user: ${{ secrets.USERNAME }}
+        remote_key: ${{ secrets.KEY }}
+      
