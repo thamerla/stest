@@ -10,7 +10,7 @@ jobs:
     - name: Deploy via rsync
       uses: burnett01/rsync-deployments@6.0.0
       with:
-        switches: -avzr --delete --exclude=".env .git .github" --include="" --filter=""
+        switches: -avzr --delete --exclude=".env" --exclude=".git" --exclude=".github" --include="" --filter=""
         path: ./
         remote_path: ./t
         remote_host: ${{ secrets.HOST }}
