@@ -20,7 +20,7 @@ jobs:
       with:
         switches: -avzr --delete --exclude=".env" --exclude=".git" --exclude=".github" --include="" --filter=""
         path: ./
-        remote_path: ./t
+        remote_path: ${{ secrets.PATH }}
         remote_host: ${{ secrets.HOST }}
         remote_port: ${{ secrets.PORT }}
         remote_user: ${{ secrets.USERNAME }}
